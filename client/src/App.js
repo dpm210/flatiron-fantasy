@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import {useState, useEffect} from 'react'
+import {react, useState, useEffect} from 'react'
 
 //component imports
 import Admin from './Admin'
@@ -18,13 +18,21 @@ function App() {
 
   //Setting States
   const [user, setUser] = useState([])
+  const [group, setGroup] = useState([])
 
   //Load Data
+
   useEffect(() => {
-    fetch('localhost:3000/users')
+    fetch('http://localhost:3000/groups/')
+    .then(res => res.json())
+    .then(groupData => setGroup(groupData))
+  }, [])
+
+  useEffect(() => {
+    fetch('http://localhost:3000/users/')
     .then(res => res.json())
     .then(userData => setUser(userData))
-  })
+  }, [])
 
 
   return (
@@ -33,10 +41,10 @@ function App() {
         <Switch>
 
           <Route exact path='/'>
-            <Home />
+            <Home group={group} setGroup={setGroup} />
           </Route>
 
-          <Route path='/pickemspage'>
+          <Route path='/pickems'>
             <PickemsPage />
           </Route>
 

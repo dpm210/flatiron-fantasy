@@ -14,10 +14,16 @@ class PredictionsController < ApplicationController
         end 
     end
 
+    def destroy
+        prediction = Prediction.find_by(id: params[:id])
+        prediction.destroy
+    end
+
     private
 
     def pred_params
         params.permit(:user_id, :game_id, :group_id, :pick)
     end
+
 end
 
