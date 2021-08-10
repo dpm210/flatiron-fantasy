@@ -6,29 +6,29 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# puts "🌋 Clearing old data..."
-# User.destroy_all
-# User.reset_pk_sequence
-# Game.destroy_all
-# Game.reset_pk_sequence
-# Group.destroy_all
-# Group.reset_pk_sequence
-# Prediction.destroy_all
-# Prediction.reset_pk_sequence
-# UserGroup.destroy_all
-# UserGroup.reset_pk_sequence
+puts "🌋 Clearing old data..."
+User.destroy_all
+User.reset_pk_sequence
+Game.destroy_all
+Game.reset_pk_sequence
+Group.destroy_all
+Group.reset_pk_sequence
+Prediction.destroy_all
+Prediction.reset_pk_sequence
+UserGroup.destroy_all
+UserGroup.reset_pk_sequence
 
 puts "Creating Users..."
 User.create(username: 'Adreena', password: "test", acct_type: "player", total_points: 0)
 User.create(username: 'Adrienne', password: "test", acct_type: "player", total_points: 0)
 User.create(username: 'Arthur', password: "test", acct_type: "player", total_points: 0)
 User.create(username: 'Brendan', password: "test", acct_type: "player", total_points: 0)
-User.create(username: 'Carlos', password: "test", acct_type: "player", total_points: 4)
+User.create(username: 'Carlos', password: "test", acct_type: "player", total_points: 0)
 User.create(username: 'Dan', password: "test", acct_type: "admin", total_points: 0)
 User.create(username: 'Darren', password: "test", acct_type: "player", total_points: 0)
-User.create(username: 'Edward', password: "test", acct_type: "player", total_points: 2)
+User.create(username: 'Edward', password: "test", acct_type: "player", total_points: 0)
 User.create(username: 'Greg', password: "test", acct_type: "player", total_points: 0)
-User.create(username: 'Jack', password: "test", acct_type: "player", total_points: 1)
+User.create(username: 'Jack', password: "test", acct_type: "player", total_points: 0)
 User.create(username: 'Kenny', password: "test", acct_type: "player", total_points: 0)
 User.create(username: 'Kyle', password: "test", acct_type: "player", total_points: 0)
 User.create(username: 'Lucy', password: "test", acct_type: "player", total_points: 0)
