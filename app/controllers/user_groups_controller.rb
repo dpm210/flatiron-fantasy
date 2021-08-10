@@ -13,4 +13,19 @@ class UserGroupsController < ApplicationController
         else record_not_found
         end
     end
+
+    def create
+        newUserGroup = UserGroup.create(user_group_params)
+        if newUserGroup.valid?
+            render json: newUserGroup, status: :created
+        else
+            render json: {errors: newUserGroup.errors.full_messages}, status: :unprocessable_entity
+        end 
+    end 
+
+    private
+
+    def user_group_params
+        params.permit(:user_id, :group_id)
+    end
 end

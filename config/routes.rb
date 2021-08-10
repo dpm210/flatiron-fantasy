@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :user_groups, only: [:index, :show, :create]
-  resources :predictions, only: [:index, :show, :create, :destroy]
+  resources :predictions, only: [:index, :show, :create, :update]
   resources :groups, only: [:index, :show, :create]
   resources :games, only: [:index, :show, :update]
   resources :users, only: [:index, :show, :create]
