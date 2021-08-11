@@ -22,7 +22,11 @@ class UsersController < ApplicationController
             render json:user
         else record_not_found
         end
-    end 
+    end
+
+    def add_points
+        Prediction.point.sum
+    end
 
     private 
 

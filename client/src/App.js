@@ -24,7 +24,7 @@ function App() {
   //Load Data
   useEffect(() => {
       const userId = localStorage.getItem('user_id')
-      fetch(`http://localhost:3000/users/7`)
+      fetch(`http://localhost:3000/users/1`)
       .then(res => res.json())
       .then(userData => setUsers(userData.groups))
       }, []);

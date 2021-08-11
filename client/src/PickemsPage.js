@@ -19,6 +19,7 @@ function PickemsPage(){
     })
     return(
         <div>
+            <h1>Week 1 Games</h1>
             <div className="row">{gameCards}</div>
         </div>
     )

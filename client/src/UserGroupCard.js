@@ -1,14 +1,12 @@
 import {useState} from 'react'
-import {Link, useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 function UserGroupCard({user, group, currentGroup, setCurrentGroup}){
 
 // console.log(group)
-// const history = useHistory();
 function handleClick(){
     setCurrentGroup(user)
-    // history.push('/')
 }
-console.log(currentGroup)
+// console.log(currentGroup)
 
 
 

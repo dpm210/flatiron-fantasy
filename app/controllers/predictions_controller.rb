@@ -1,4 +1,5 @@
 class PredictionsController < ApplicationController
+    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
     def index
         predictions = Prediction.all
@@ -13,6 +14,14 @@ class PredictionsController < ApplicationController
             render json: {errors: newPred.errors.full_messages}, status: :unprocessable_entity
         end 
     end
+
+    def show
+        pred = Prediction.find_by(id: params[:id])
+        if pred
+            render json: pred
+        else record_not_found
+        end
+    end 
 
     def destroy
         prediction = Prediction.find_by(id: params[:id])

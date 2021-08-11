@@ -2,23 +2,38 @@ import {useState, useEffect} from 'react'
 import Leaderboard from './Leaderboard'
 
 function GroupPage({group, currentGroup, setCurrentGroup}){
-
-// console.log(currentGroup)
+    const [newGroup, setNewGroup] = useState([])
 
 useEffect(() => {
     fetch(`http://localhost:3000/groups/${currentGroup.id}`)
     .then(res => res.json())
-    .then(groupUsers => console.log(groupUsers.users))
-})
+    .then(groupUsers => setNewGroup(groupUsers))
+},[])
 
-// const groupLeaderboard = currentGroup.map(user => 
-//     <Leaderboard user={user} key={user.id}/>)
+
+const groupLeaderboard = newGroup.users.map(user =>
+    <tr>
+    <td>{user.username}</td>
+    <td>{user.total_points}</td>
+    </tr>
+    )
 
 
     return(
-        <div>
+        <div>  
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+                {groupLeaderboard}
+        </tbody>
 
-        </div>
+    </table>
+     </div>
     )
 }
 

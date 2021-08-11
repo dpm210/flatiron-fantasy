@@ -8,8 +8,8 @@ function Home({users, group, setGroup, currentGroup, setCurrentGroup}){
     const joinGroupFilter = (id) => {
         let joinGroup = [...group]
         joinGroup = joinGroup.filter((group)=>{
-            console.log(group);
-            return group.id !== users.id
+            console.log(group.id);
+            return users.id !== group.id
          })
          setGroup(joinGroup)
     }

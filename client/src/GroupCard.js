@@ -9,7 +9,7 @@ function GroupCard({group, users, joinGroupFilter}){
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "user_id": 7,
+                "user_id": 1,
                 "group_id": group.id
             })
         })
