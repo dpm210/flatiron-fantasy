@@ -13,14 +13,23 @@ import LogIn from './LogIn'
 import NavBar from './NavBar'
 import PickemsPage from './PickemsPage'
 import SignUp from './SignUp'
+import GroupPage from './GroupPage'
 
 function App() {
-
-  //Setting States
-  const [user, setUser] = useState([])
+  const [users, setUsers] = useState([])
   const [group, setGroup] = useState([])
+  const [currentGroup, setCurrentGroup] = useState([])
+
 
   //Load Data
+  useEffect(() => {
+      const userId = localStorage.getItem('user_id')
+      fetch(`http://localhost:3000/users/7`)
+      .then(res => res.json())
+      .then(userData => setUsers(userData.groups))
+      }, []);
+
+      // console.log(users)
 
   useEffect(() => {
     fetch('http://localhost:3000/groups/')
@@ -28,11 +37,8 @@ function App() {
     .then(groupData => setGroup(groupData))
   }, [])
 
-  useEffect(() => {
-    fetch('http://localhost:3000/users/')
-    .then(res => res.json())
-    .then(userData => setUser(userData))
-  }, [])
+
+  
 
 
   return (
@@ -41,15 +47,19 @@ function App() {
         <Switch>
 
           <Route exact path='/'>
-            <Home group={group} setGroup={setGroup} />
+            <Home users={users} group={group} setGroup={setGroup} currentGroup={currentGroup} setCurrentGroup={setCurrentGroup} />
+          </Route>
+
+          <Route path='/group'>
+            <GroupPage currentGroup={currentGroup} setCurrentGroup={setCurrentGroup}/>
           </Route>
 
           <Route path='/pickems'>
-            <PickemsPage />
+            <PickemsPage  />
           </Route>
 
           <Route path='/leaderboard'>
-            <Leaderboard />
+            <Leaderboard group={group} currentGroup={currentGroup}/>
           </Route>
 
           <Route path='/login'>
