@@ -1,6 +1,8 @@
 import {useState} from 'react'
 import {Link} from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
+import { Button, Card, Image, Grid } from 'semantic-ui-react'
+
 function UserGroupCard({userGroup, groups, setCurrentGroup, currentGroup}){
 // const history = useHistory();
 // console.log(group)
@@ -11,7 +13,7 @@ function handleClick(){
 
     // console.log(userGroup)
 }
-console.log(currentGroup)
+// console.log(currentGroup)
 
     return(
 
@@ -19,7 +21,7 @@ console.log(currentGroup)
                         <div className="card-body">
                             <h5 className="card-title">{userGroup.title}</h5>
                             <Link to='/Group'>
-                            <button onClick={handleClick}>View League</button>
+                            <Button onClick={handleClick}>View League</Button>
                             </Link>
                         </div>
                     </div>

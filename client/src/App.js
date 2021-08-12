@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {react, useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
+import 'semantic-ui-css/semantic.min.css'
 
 //component imports
 import Admin from './Components/Admin.js'
@@ -69,10 +70,12 @@ function App() {
       .then(userGroupData => setUserGroups(userGroupData.groups))
       }, []);
 
+      // console.log(userGroups)
+
   return (
     <div className="App">
       <Router>
-        <NavBar currentUser={currentUser}/>
+        <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
         <Switch>
 
           <Route exact path='/'>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { redirect, Link } from 'react-router-dom'
+import { Button, Segment } from 'semantic-ui-react'
 
 function LogIn({setCurrentUser, currentUser}){
     const [username, setUserName] = useState('')
@@ -58,7 +59,7 @@ function LogIn({setCurrentUser, currentUser}){
             </div>
             <br/>
             <br/>
-                <button className="ui violet button" type='submit'>Sign In</button>
+                <Button className="ui button" color='green' type='submit'>Sign In</Button>
                 <p>{errors}</p>
             </form>
         </div>

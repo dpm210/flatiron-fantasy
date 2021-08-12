@@ -1,8 +1,9 @@
 import GroupCard from './GroupCard'
 import UserGroupCard from './UserGroupCard'
 import {useState, useEffect} from 'react'
+import { Grid, Image } from 'semantic-ui-react'
 
-function Home({groups,setCurrentGroup, userGroups, currentGroup}){
+function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, setCurrentUser}){
 
 
     // const joinGroupFilter = (id) => {
@@ -26,7 +27,7 @@ function Home({groups,setCurrentGroup, userGroups, currentGroup}){
     const userGroupCards = userGroups.map(userGroup => {
         return <>
          <div className="col-3" style={{ marginBottom: '20px',  }}>
-             <UserGroupCard userGroup={userGroup} key={userGroup.id} groups={groups} setCurrentGroup={setCurrentGroup} currentGroup={currentGroup} />
+             <UserGroupCard userGroup={userGroup} key={userGroup.id} groups={groups} setCurrentGroup={setCurrentGroup} currentGroup={currentGroup} currentUser={currentUser} setCurrentUser={setCurrentUser} />
              </div>
              <br />
              </>

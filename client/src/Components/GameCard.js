@@ -1,6 +1,6 @@
 import {useState} from 'react'
 function GameCard({game}){
-    console.log(game)
+    // console.log(game)
     const [isClicked, setClicked] = useState(false)
     const [selectedTeam, setSelectedTeam] = useState(game.away_team)
 
@@ -12,6 +12,8 @@ function GameCard({game}){
     }
 
     function handlePick(e){
+        const groupId = localStorage.getItem("group_id")
+        const userId = localStorage.getItem("user_id")
         setClicked(!isClicked)
         fetch('http://localhost:3000/predictions',{
             method: 'POST',
@@ -20,9 +22,9 @@ function GameCard({game}){
             },
             body: JSON.stringify(
                 {
-                    "user_id": 5,
+                    "user_id": userId,
                     "game_id": game.id,
-                    "group_id": 2,
+                    "group_id": groupId,
                     "pick": selectedTeam
                 }
                 )

@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react'
+import {Link} from 'react-router-dom'
 import GameCard from './GameCard'
+
 function PickemsPage(){
     const [games, setGames] = useState([])
 
@@ -19,6 +21,12 @@ function PickemsPage(){
     })
     return(
         <div>
+            <Link to='/'>
+            <button>Home</button>
+            </Link>
+            <Link to='/group'>
+            <button>Leaderboard</button>
+            </Link>
             <h1>Week 1 Games</h1>
             <div className="row">{gameCards}</div>
         </div>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
+import { Button, Segment } from 'semantic-ui-react'
+
 
 function SignUp(){
 const [newUser, setNewUser] = useState("")
@@ -67,7 +69,7 @@ const errorMes = signUpErrors.map((err) =>
             </div>
             <br/>
             <br/>
-             <button className="ui violet button" type='submit'>Sign Up</button>
+             <Button className="ui button" color='green' type='submit'>Sign Up</Button>
              <div>{errorMes}</div>
          </form>
     </div>
