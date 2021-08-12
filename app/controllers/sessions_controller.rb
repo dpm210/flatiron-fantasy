@@ -23,4 +23,3 @@ class SessionsController < ApplicationController
         head :no_content
     end 
 end 
-end

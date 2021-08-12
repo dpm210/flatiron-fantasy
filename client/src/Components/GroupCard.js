@@ -1,6 +1,6 @@
-import {useState} from 'react'
-function GroupCard({group, users, joinGroupFilter}){
-    // console.log(users)
+import {useState, useEffect} from 'react'
+function GroupCard({userGroup,group, setCurrentGroup, currentUser, setCurrentUser}){
+    console.log(currentUser)
 
     function handleClick(){
         fetch('http://localhost:3000/user_groups', {
@@ -9,11 +9,12 @@ function GroupCard({group, users, joinGroupFilter}){
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "user_id": 1,
-                "group_id": group.id
+                "user_id": currentUser.id,
+                "group_id": group.id,
+                "total_points": 0
             })
         })
-        joinGroupFilter(group.id)
+        // joinGroupFilter(group.id)
     }
 
     return(

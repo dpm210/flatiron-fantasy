@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :username
       t.string :password_digest
       t.string :acct_type
-      t.integer :total_points
 
       t.timestamps
     end

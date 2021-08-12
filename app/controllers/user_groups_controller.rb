@@ -7,7 +7,7 @@ class UserGroupsController < ApplicationController
     end
 
     def show
-        userGroup = UserGroup.find_by(id: params[:id])
+        userGroup = UserGroup.where(group_id: params[:id])
         if userGroup
             render json: userGroup
         else record_not_found
@@ -26,6 +26,6 @@ class UserGroupsController < ApplicationController
     private
 
     def user_group_params
-        params.permit(:user_id, :group_id)
+        params.permit(:user_id, :group_id, :total_points)
     end
 end

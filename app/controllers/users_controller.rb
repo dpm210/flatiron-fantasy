@@ -24,10 +24,6 @@ class UsersController < ApplicationController
         end
     end
 
-    def add_points
-        Prediction.point.sum
-    end
-
     private 
 
     def record_not_found

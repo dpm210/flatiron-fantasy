@@ -5,7 +5,7 @@ class CreatePredictions < ActiveRecord::Migration[6.1]
       t.integer :game_id
       t.integer :group_id
       t.string :pick
-      t.integer :point
+      t.integer :point, default: 0
 
       t.timestamps
     end

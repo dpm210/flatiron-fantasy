@@ -2,31 +2,31 @@ import GroupCard from './GroupCard'
 import UserGroupCard from './UserGroupCard'
 import {useState, useEffect} from 'react'
 
-function Home({users, group, setGroup, currentGroup, setCurrentGroup}){
+function Home({groups,setCurrentGroup, userGroups, currentGroup}){
 
 
-    const joinGroupFilter = (id) => {
-        let joinGroup = [...group]
-        joinGroup = joinGroup.filter((group)=>{
-            console.log(group.id);
-            return users.id !== group.id
-         })
-         setGroup(joinGroup)
-    }
+    // const joinGroupFilter = (id) => {
+    //     let joinGroup = [...group]
+    //     joinGroup = joinGroup.filter((group)=>{
+    //         console.log(group.id);
+    //         return users.id !== group.id
+    //      })
+    //      setGroup(joinGroup)
+    // }
 
-    const groupCards = group.map(group => {
+    const groupCards = groups.map(group => {
         return <>
          <div className="col-3" style={{ marginBottom: '20px',  }}>
-             <GroupCard group={group} key={group.id} users={users} joinGroupFilter={joinGroupFilter}/>
+             <GroupCard group={group} key={group.id} userGroups={userGroups} />
              </div>
              <br />
              </>
     })
 
-    const userGroupCards = users.map(user => {
+    const userGroupCards = userGroups.map(userGroup => {
         return <>
          <div className="col-3" style={{ marginBottom: '20px',  }}>
-             <UserGroupCard user={user} key={user.id} users={users} group={group} currentGroup={currentGroup} setCurrentGroup={setCurrentGroup} />
+             <UserGroupCard userGroup={userGroup} key={userGroup.id} groups={groups} setCurrentGroup={setCurrentGroup} currentGroup={currentGroup} />
              </div>
              <br />
              </>

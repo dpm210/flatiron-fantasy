@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_08_10_132916) do
     t.integer "game_id"
     t.integer "group_id"
     t.string "pick"
-    t.integer "point"
+    t.integer "point", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_08_10_132916) do
   create_table "user_groups", force: :cascade do |t|
     t.integer "user_id"
     t.integer "group_id"
+    t.integer "total_points", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -51,7 +52,6 @@ ActiveRecord::Schema.define(version: 2021_08_10_132916) do
     t.string "username"
     t.string "password_digest"
     t.string "acct_type"
-    t.integer "total_points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
