@@ -28,7 +28,9 @@ function PickemsPage(){
             <button>Leaderboard</button>
             </Link>
             <h1>Week 1 Games</h1>
+            <div>
             <div className="row">{gameCards}</div>
+            </div>
         </div>
     )
 }

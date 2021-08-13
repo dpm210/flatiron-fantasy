@@ -9,6 +9,7 @@ function UserGroupCard({userGroup, groups, setCurrentGroup, currentGroup}){
 function handleClick(){
     setCurrentGroup(userGroup)
     localStorage.setItem('group_id', userGroup.id)
+    localStorage.setItem('group_title', userGroup.title)
     // history.push('/group')
 
     // console.log(userGroup)

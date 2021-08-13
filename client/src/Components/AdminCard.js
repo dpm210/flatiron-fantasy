@@ -1,6 +1,6 @@
 import {useState} from 'react'
-import SubmitPick from './SubmitPick'
-function GameCard({game}){
+
+function AdminCard({game}){
     // console.log(game)
     const [isClicked, setClicked] = useState(false)
     const [selectedTeam, setSelectedTeam] = useState(game.away_team)
@@ -16,17 +16,14 @@ function GameCard({game}){
         const groupId = localStorage.getItem("group_id")
         const userId = localStorage.getItem("user_id")
         setClicked(!isClicked)
-        fetch('http://localhost:3000/predictions',{
-            method: 'POST',
+        fetch(`http://localhost:3000/games/${game.id}`,{
+            method: 'PATCH',
             headers:{
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(
                 {
-                    "user_id": userId,
-                    "game_id": game.id,
-                    "group_id": groupId,
-                    "pick": selectedTeam
+                    "winning_team": selectedTeam
                 }
                 )
             })
@@ -46,15 +43,19 @@ function GameCard({game}){
             <div className="card">
                 <div className="card-body">
                     <h2 className="card-title">{game.away_team} vs. {game.home_team}</h2>
-                    <h3>Make your pick!</h3>
+
+                    {isClicked ?
+                    null :
+                    <div>                 
+                    <h3>Select Winning Team</h3>
                     <select value={selectedTeam} onChange={handleDropdown}>
                         <option>{game.away_team}</option>
                         <option>{game.home_team}</option>
                     </select>
-                    <br />
+                    </div> }
                     <br />
                     <div> 
-                        {isClicked ? <button onClick={handleChange}>Change your pick</button> : <button onClick={handlePick}>Submit Pick</button> }
+                        {isClicked ? "Winning Team Selected!":<button onClick={handlePick}>Submit Winner</button> }
                     </div>
                 </div>
             </div>
@@ -62,4 +63,4 @@ function GameCard({game}){
     )
 }
 
-export default GameCard
+export default AdminCard

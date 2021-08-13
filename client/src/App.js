@@ -102,6 +102,10 @@ function App() {
             <SignUp />
           </Route>
 
+          <Route path='/admin'>
+            <Admin />
+          </Route>
+
         </Switch>
 
       </Router>
