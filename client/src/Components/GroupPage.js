@@ -19,7 +19,7 @@ function GroupPage({groups, currentGroup, setCurrentGroup}){
 const groupLeaderboard = newGroup.map(user =>
         <Table.Row>
                 <Table.Cell>{user.user.username}</Table.Cell>
-                <Table.Cell>{user.total_points}</Table.Cell>
+                <Table.Cell>{user.points}</Table.Cell>
         </Table.Row>
 )
 
