@@ -1,4 +1,5 @@
 class UserGroup < ApplicationRecord
+    # default_scope { order(points: :desc) }
 
     belongs_to :user
     belongs_to :group

@@ -6,15 +6,17 @@ import { Header, Image, Table, Button } from 'semantic-ui-react'
 function GroupPage({groups, currentGroup, setCurrentGroup}){
     const [newGroup, setNewGroup] = useState([])
     const groupTitle = localStorage.getItem('group_title')
+
     
     useEffect(() => {
         const groupId = localStorage.getItem('group_id')
         fetch(`http://localhost:3000/groups/${groupId}`)
         .then(res => res.json())
-        .then(groupUsers => setNewGroup(groupUsers.user_groups))
+        .then(groupUsers => setNewGroup(groupUsers.user_groups.sort((a,b) => b.points - a.points)))
     },[])
-        console.log(newGroup)
-
+    console.log(newGroup)
+    
+    // document.title = {}
 
 const groupLeaderboard = newGroup.map(user =>
         <Table.Row>

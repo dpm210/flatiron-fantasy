@@ -12,7 +12,7 @@ function handleClick(){
     localStorage.setItem('group_title', userGroup.title)
     // history.push('/group')
 
-    // console.log(userGroup)
+    console.log(userGroup)
 }
 // console.log(currentGroup)
 

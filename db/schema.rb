@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_08_10_132916) do
   create_table "games", force: :cascade do |t|
     t.string "home_team"
     t.string "away_team"
-    t.string "winning_team"
+    t.string "winning_team", default: ""
     t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_08_10_132916) do
 
   create_table "groups", force: :cascade do |t|
     t.string "title"
+    t.boolean "private", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

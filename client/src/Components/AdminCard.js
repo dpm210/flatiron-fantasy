@@ -28,7 +28,7 @@ function AdminCard({game}){
                 )
             })
             setClicked(!isClicked)
-
+            console.log(game.winning_team)
         }
 
         function handleChange(){
@@ -43,19 +43,16 @@ function AdminCard({game}){
             <div className="card">
                 <div className="card-body">
                     <h2 className="card-title">{game.away_team} vs. {game.home_team}</h2>
-
-                    {isClicked ?
-                    null :
                     <div>                 
                     <h3>Select Winning Team</h3>
                     <select value={selectedTeam} onChange={handleDropdown}>
                         <option>{game.away_team}</option>
                         <option>{game.home_team}</option>
                     </select>
-                    </div> }
+                    </div>
                     <br />
-                    <div> 
-                        {isClicked ? "Winning Team Selected!":<button onClick={handlePick}>Submit Winner</button> }
+                    <div>
+                        {game.winning_team.length > 1 ? "Winning Team Selected!" : <button onClick={handlePick}>Submit Winner</button> }
                     </div>
                 </div>
             </div>

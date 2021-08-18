@@ -79,7 +79,7 @@ function App() {
         <Switch>
 
           <Route exact path='/'>
-            <Home groups={groups} setCurrentGroup={setCurrentGroup} userGroups={userGroups} currentGroup={currentGroup} currentUser={currentUser} setCurrentUser={setCurrentUser} />
+            <Home groups={groups} setGroups={setGroups} setCurrentGroup={setCurrentGroup} userGroups={userGroups} currentGroup={currentGroup} currentUser={currentUser} setCurrentUser={setCurrentUser} />
           </Route>
 
           <Route path='/group'>

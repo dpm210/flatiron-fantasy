@@ -1,11 +1,11 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import SubmitPick from './SubmitPick'
 function GameCard({game}){
     // console.log(game)
     const [isClicked, setClicked] = useState(false)
     const [selectedTeam, setSelectedTeam] = useState(game.away_team)
 
-    console.log(selectedTeam)
+    // console.log(selectedTeam)
 
     function handleDropdown(e){
         setSelectedTeam(e.target.value)

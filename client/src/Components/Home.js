@@ -3,10 +3,11 @@ import UserGroupCard from './UserGroupCard'
 import {useState, useEffect} from 'react'
 import { Grid, Image, Button, Icon, Modal } from 'semantic-ui-react'
 
-function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, setCurrentUser}){
+function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, setCurrentUser, setGroups}){
     const [isClicked, setIsClicked] = useState(false)
+    const [isChecked, setIsChecked] = useState(false)
     const [leagueName, setLeagueName] = useState("")
-    
+        
     function handleClick(){
         setIsClicked(!isClicked)
         console.log(isClicked)
@@ -29,20 +30,28 @@ function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, s
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                'title': leagueName
+                'title': leagueName,
+                'private': isChecked
             })
         })
         console.log(leagueName)
     }
 
-    const joinGroupFilter = (id) => {
-        let joinGroup = [...groups]
-        joinGroup = joinGroup.filter((group)=>{
-            console.log(group.id);
-            return group.id !== group.id
-         })
-        //  setGroup(joinGroup)
+    function handleChecked(){
+        setIsChecked(!isChecked)
+        console.log(isChecked)
     }
+
+    console.log(isChecked)
+
+    // const joinGroupFilter = (id) => {
+    //     let joinGroup = [...groups]
+    //     joinGroup = joinGroup.filter((group)=>{
+    //         console.log(group.id);
+    //         return group.id !== userGroups.id
+    //      })
+    //      setGroups(joinGroup)
+    // }
 
     const groupCards = groups.map(group => {
         return <>
@@ -69,6 +78,7 @@ function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, s
             <div>
             <form type='submit' onSubmit={handleSubmitLeague}>
             <input onChange={handleLeagueName} placeholder="League Name"></input>
+            <input type="checkbox" id="checkbox" name="private" value="Private?" checked={isChecked} onChange={handleChecked} />Private?
             <Button>Submit League</Button>
             </form>
             <Button onClick={handleCancel}>Cancel</Button>

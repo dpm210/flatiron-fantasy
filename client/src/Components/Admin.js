@@ -5,6 +5,8 @@ import AdminCard from './AdminCard'
 function Admin(){
     const [games, setGames] = useState([])
 
+    document.title = 'Admin'
+
     useEffect(() => {
         fetch('http://localhost:3000/games/')
         .then(res => res.json())

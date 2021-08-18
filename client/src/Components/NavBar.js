@@ -8,6 +8,7 @@ function NavBar({currentUser, setCurrentUser}){
         })
         localStorage.removeItem("user_id")
         localStorage.removeItem("group_id")
+        localStorage.removeItem("group_title")
         setCurrentUser([])
     }
 

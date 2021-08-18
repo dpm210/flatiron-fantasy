@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import { Button, Card, Image, Grid } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
-function GroupCard({userGroup,group, setCurrentGroup, currentUser, setCurrentUser}){
+function GroupCard({userGroup,group, setCurrentGroup, currentUser, setCurrentUser, joinGroupFilter}){
     // console.log(currentUser)
 
     function handleClick(){
