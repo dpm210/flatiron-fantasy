@@ -1,4 +1,6 @@
 import {useState} from 'react'
+import { Card, Grid, Image, Button, Icon, Modal } from 'semantic-ui-react'
+
 
 function AdminCard({game}){
     // console.log(game)
@@ -41,20 +43,26 @@ function AdminCard({game}){
     return(
         <div>
             <div className="card">
-                <div className="card-body">
-                    <h2 className="card-title">{game.away_team} vs. {game.home_team}</h2>
+                <Card.Group>
+                    <Card>
+                        <Card.Content>
+                    <div className="content">
+                    <div className="header">{game.away_team} vs. {game.home_team}</div>
                     <div>                 
-                    <h3>Select Winning Team</h3>
-                    <select value={selectedTeam} onChange={handleDropdown}>
-                        <option>{game.away_team}</option>
-                        <option>{game.home_team}</option>
+                    <div className="description">Select Winning Team</div>
+                    <select className="ui dropdown" value={selectedTeam} onChange={handleDropdown}>
+                        <option value="1">{game.away_team}</option>
+                        <option value="0">{game.home_team}</option>
                     </select>
+                    </div>
                     </div>
                     <br />
                     <div>
-                        {game.winning_team.length > 1 ? "Winning Team Selected!" : <button onClick={handlePick}>Submit Winner</button> }
+                        {isClicked ? "Winning Team Selected!" : <div className="ui primary button" onClick={handlePick}>Save Winner</div> }
                     </div>
-                </div>
+                    </Card.Content>
+                    </Card>
+                </Card.Group>
             </div>
         </div>
     )

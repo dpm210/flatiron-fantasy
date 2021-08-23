@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import AdminCard from './AdminCard'
+import {Grid} from 'semantic-ui-react'
 
 function Admin(){
     const [games, setGames] = useState([])
@@ -16,20 +17,21 @@ function Admin(){
 
     const adminCards = games.map(game => {
         return <>
-         <div className="col-3" style={{ marginBottom: '20px',  }}>
+        <Grid.Column>
              <AdminCard game={game} key={game.id} />
-             </div>
-             <br />
+             </Grid.Column>
              </>
     })
     return(
         <div>
-            <Link to='/'>
+            {/* <Link to='/'>
             <button>Home</button>
-            </Link>
+            </Link> */}
             <h1>Week 1 Games</h1>
             <div>
-            <div className="row">{adminCards}</div>
+                <Grid container columns={3}>
+                {adminCards}
+                </Grid>
             </div>
         </div>
     )

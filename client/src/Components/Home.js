@@ -1,17 +1,18 @@
 import GroupCard from './GroupCard'
 import UserGroupCard from './UserGroupCard'
 import {useState, useEffect} from 'react'
-import { Grid, Image, Button, Icon, Modal } from 'semantic-ui-react'
+import { Grid, Button} from 'semantic-ui-react'
 
 function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, setCurrentUser, setGroups}){
     const [isClicked, setIsClicked] = useState(false)
     const [isChecked, setIsChecked] = useState(false)
-    const [leagueName, setLeagueName] = useState("")
-        
+    const [leagueName, setLeagueName] = useState("")    
     function handleClick(){
         setIsClicked(!isClicked)
         console.log(isClicked)
     }
+
+    document.title = "Home"
 
     function handleCancel(){
         setIsClicked(!isClicked)
@@ -55,44 +56,58 @@ function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, s
 
     const groupCards = groups.map(group => {
         return <>
-         <div className="col-3" style={{ marginBottom: '20px',  }}>
-             <GroupCard group={group} key={group.id} userGroups={userGroups} />
-             </div>
+         <div>
+             <Grid.Column>
+                <GroupCard group={group} key={group.id} userGroups={userGroups} />
+             </Grid.Column>
+        </div>
              <br />
              </>
     })
 
     const userGroupCards = userGroups.map(userGroup => {
         return <>
-         <div className="col-3" style={{ marginBottom: '20px',  }}>
-             <UserGroupCard userGroup={userGroup} key={userGroup.id} groups={groups} setCurrentGroup={setCurrentGroup} currentGroup={currentGroup} currentUser={currentUser} setCurrentUser={setCurrentUser} />
-             </div>
+         <div>
+             <Grid.Column>
+                <UserGroupCard userGroup={userGroup} key={userGroup.id} groups={groups} setCurrentGroup={setCurrentGroup} currentGroup={currentGroup} currentUser={currentUser} setCurrentUser={setCurrentUser} />
+             </Grid.Column>
+        </div>
              <br />
              </>
     })
     return(
         <div>
+            <h2>Join Leagues</h2>
             <div>
-
             {isClicked === true ?
             <div>
             <form type='submit' onSubmit={handleSubmitLeague}>
             <input onChange={handleLeagueName} placeholder="League Name"></input>
             <input type="checkbox" id="checkbox" name="private" value="Private?" checked={isChecked} onChange={handleChecked} />Private?
-            <Button>Submit League</Button>
+            <Button className="ui primary button" >Submit League</Button>
             </form>
             <Button onClick={handleCancel}>Cancel</Button>
             </div>
             : 
-            <Button onClick={handleClick}>
+            <Button className="ui secondary button" onClick={handleClick}>
                 Create New League
             </Button>}
-                <h2>Join Leagues</h2>
-                <div className="row">{groupCards}</div>
+            <br />
+            <br />
+            <br />
+            <Grid container columns={3}>   
+            {groupCards}
+            </Grid> 
             </div>
+            <br />
+            <br />
+            <br />
             <div>
                 <h2>My Leagues</h2>
-                <div>{userGroupCards}</div>
+                <br />
+                <Grid container columns={3}>
+                {userGroupCards}
+                </Grid>
             </div>
         </div>
     )

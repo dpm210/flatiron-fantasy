@@ -12,19 +12,25 @@ function handleClick(){
     localStorage.setItem('group_title', userGroup.title)
     // history.push('/group')
 
-    console.log(userGroup)
+    // console.log(userGroup)
 }
 // console.log(currentGroup)
 
     return(
 
                     <div className="card">
+                        <Card.Group>
+                            <Card>
+                                <Card.Content>
                         <div className="card-body">
                             <h5 className="card-title">{userGroup.title}</h5>
                             <Link to='/Group'>
                             <Button onClick={handleClick}>View League</Button>
                             </Link>
                         </div>
+                                </Card.Content>
+                            </Card>
+                        </Card.Group>
                     </div>
     )
 }

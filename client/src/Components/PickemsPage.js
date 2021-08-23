@@ -1,6 +1,8 @@
 import {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import GameCard from './GameCard'
+import { Button, Card, Image, Grid } from 'semantic-ui-react'
+
 
 function PickemsPage(){
     const [games, setGames] = useState([])
@@ -13,24 +15,22 @@ function PickemsPage(){
 
     const gameCards = games.map(game => {
         return <>
-         <div className="col-3" style={{ marginBottom: '20px',  }}>
+            <Grid.Column>
              <GameCard game={game} key={game.id} />
-             </div>
+             </Grid.Column>
              <br />
              </>
     })
     return(
         <div>
-            <Link to='/'>
-            <button>Home</button>
-            </Link>
+            <br />
             <Link to='/group'>
-            <button>Leaderboard</button>
+            <Button> League Leaderboard</Button>
             </Link>
             <h1>Week 1 Games</h1>
-            <div>
-            <div className="row">{gameCards}</div>
-            </div>
+            <Grid container columns={3}>
+            {gameCards}
+            </Grid>
         </div>
     )
 }

@@ -1,11 +1,22 @@
 import {useEffect, useState} from 'react'
-import SubmitPick from './SubmitPick'
+import { Card } from 'semantic-ui-react'
+import { Grid, Image, Button, Icon, Modal } from 'semantic-ui-react'
+
 function GameCard({game}){
     // console.log(game)
     const [isClicked, setClicked] = useState(false)
     const [selectedTeam, setSelectedTeam] = useState(game.away_team)
+    const [predictions, setPredictions] = useState([])
 
     // console.log(selectedTeam)
+
+    // useEffect(() => {
+    //     fetch('http://localhost:3000/predictions')
+    //     .then(res => res.json())
+    //     .then(data => setPredictions(data))
+    // },[])
+
+    // console.log(predictions)
 
     function handleDropdown(e){
         setSelectedTeam(e.target.value)
@@ -44,6 +55,9 @@ function GameCard({game}){
     return(
         <div>
             <div className="card">
+                <Card.Group>
+                    <Card>
+                        <Card.Content>
                 <div className="card-body">
                     <h2 className="card-title">{game.away_team} vs. {game.home_team}</h2>
                     <h3>Make your pick!</h3>
@@ -54,9 +68,12 @@ function GameCard({game}){
                     <br />
                     <br />
                     <div> 
-                        {isClicked ? <button onClick={handleChange}>Change your pick</button> : <button onClick={handlePick}>Submit Pick</button> }
+                        {isClicked ? <Button  className="ui secondary button" onClick={handleChange}>Change your pick</Button> : <Button className="ui primary button" onClick={handlePick}>Submit Pick</Button> }
                     </div>
                 </div>
+                </Card.Content> 
+            </Card>
+            </Card.Group>
             </div>
         </div>
     )

@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import { Button, Card, Image, Grid } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
-function GroupCard({userGroup,group, setCurrentGroup, currentUser, setCurrentUser, joinGroupFilter}){
+function GroupCard({userGroup,group, setCurrentGroup, currentUser, setCurrentUser}){
     // console.log(currentUser)
 
     function handleClick(){
@@ -26,9 +26,6 @@ function GroupCard({userGroup,group, setCurrentGroup, currentUser, setCurrentUse
     return(
 
                     <div className="card">
-                        <Grid columns={3} divided>
-                        <Grid.Row>
-                            <Grid.Column>
                         <Card.Group>
                             <Card>
                                 <Card.Content>
@@ -41,9 +38,6 @@ function GroupCard({userGroup,group, setCurrentGroup, currentUser, setCurrentUse
                                 </Card.Content>
                             </Card>
                         </Card.Group>
-                        </Grid.Column>
-                        </Grid.Row>
-                        </Grid>
                     </div>
     )
 }

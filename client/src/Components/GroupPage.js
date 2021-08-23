@@ -7,6 +7,7 @@ function GroupPage({groups, currentGroup, setCurrentGroup}){
     const [newGroup, setNewGroup] = useState([])
     const groupTitle = localStorage.getItem('group_title')
 
+    document.title = groupTitle
     
     useEffect(() => {
         const groupId = localStorage.getItem('group_id')
@@ -16,7 +17,6 @@ function GroupPage({groups, currentGroup, setCurrentGroup}){
     },[])
     console.log(newGroup)
     
-    // document.title = {}
 
 const groupLeaderboard = newGroup.map(user =>
         <Table.Row>
@@ -28,13 +28,13 @@ const groupLeaderboard = newGroup.map(user =>
 
     return(
         <div>
-            <Link to='/'>
+            {/* <Link to='/'>
             <Button>Home</Button>
-            </Link>
+            </Link> */}
+        <h2>{groupTitle}</h2>
             <Link to='/pickems'>
             <Button>Week 1 Pick ems</Button>
             </Link>
-        <h2>{groupTitle}</h2>
         <h2>Leaderboard</h2>
         <Table striped>
                 <Table.Header>
