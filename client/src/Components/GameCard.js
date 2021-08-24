@@ -10,13 +10,13 @@ function GameCard({game}){
 
     // console.log(selectedTeam)
 
-    // useEffect(() => {
-    //     fetch('http://localhost:3000/predictions')
-    //     .then(res => res.json())
-    //     .then(data => setPredictions(data))
-    // },[])
+    useEffect(() => {
+        fetch('http://localhost:3000/predictions')
+        .then(res => res.json())
+        .then(data => setPredictions(data))
+    },[])
 
-    // console.log(predictions)
+    // console.log(predictions.map(pred => pred.pick).length > 1)
 
     function handleDropdown(e){
         setSelectedTeam(e.target.value)

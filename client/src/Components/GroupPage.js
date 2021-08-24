@@ -36,11 +36,11 @@ const groupLeaderboard = newGroup.map(user =>
             <Button>Week 1 Pick ems</Button>
             </Link>
         <h2>Leaderboard</h2>
-        <Table striped>
+        <Table size='large' striped>
                 <Table.Header>
                     <Table.Row>
-                        <Table.HeaderCell>Username</Table.HeaderCell>
-                        <Table.HeaderCell>Total Points</Table.HeaderCell>
+                        <Table.HeaderCell width={5}>Username</Table.HeaderCell>
+                        <Table.HeaderCell width={5}>Total Points</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
 

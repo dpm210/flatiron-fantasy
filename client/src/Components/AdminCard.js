@@ -58,7 +58,7 @@ function AdminCard({game}){
                     </div>
                     <br />
                     <div>
-                        {isClicked ? "Winning Team Selected!" : <div className="ui primary button" onClick={handlePick}>Save Winner</div> }
+                        {isClicked ? "Winning Team Selected!" : game.winning_team ? "Winning Team Selected!" : <div className="ui primary button" onClick={handlePick}>Save Winner</div> }
                     </div>
                     </Card.Content>
                     </Card>

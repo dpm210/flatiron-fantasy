@@ -1,7 +1,7 @@
 import GroupCard from './GroupCard'
 import UserGroupCard from './UserGroupCard'
 import {useState, useEffect} from 'react'
-import { Grid, Button} from 'semantic-ui-react'
+import { Grid, Button, Card, Input} from 'semantic-ui-react'
 
 function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, setCurrentUser, setGroups}){
     const [isClicked, setIsClicked] = useState(false)
@@ -43,15 +43,16 @@ function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, s
         console.log(isChecked)
     }
 
-    console.log(isChecked)
+    console.log(groups)
+    console.log(groups.map(group => group.user_groups))
 
     // const joinGroupFilter = (id) => {
     //     let joinGroup = [...groups]
     //     joinGroup = joinGroup.filter((group)=>{
-    //         console.log(group.id);
-    //         return group.id !== userGroups.id
+    //         // console.log(group.id);
+    //         return group.id !== groups.map(filter => filter.user_groups.group_id)
     //      })
-    //      setGroups(joinGroup)
+    //      console.log(joinGroup)
     // }
 
     const groupCards = groups.map(group => {
@@ -81,12 +82,21 @@ function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, s
             <div>
             {isClicked === true ?
             <div>
-            <form type='submit' onSubmit={handleSubmitLeague}>
-            <input onChange={handleLeagueName} placeholder="League Name"></input>
-            <input type="checkbox" id="checkbox" name="private" value="Private?" checked={isChecked} onChange={handleChecked} />Private?
-            <Button className="ui primary button" >Submit League</Button>
-            </form>
-            <Button onClick={handleCancel}>Cancel</Button>
+                <Card className="card" centered>
+                    <form type='submit' onSubmit={handleSubmitLeague}>
+                        <br />
+                    <Input 
+                        onChange={handleLeagueName}
+                        placeholder="League Name">
+                    </Input>
+                    {/* <input type="checkbox" id="checkbox" name="private" value="Private?" checked={isChecked} onChange={handleChecked} />Private? */}
+                    <br />
+                    <br />
+                    <Button className="ui primary button" >Submit League</Button>
+                    </form>
+                    <br />
+                    <Button onClick={handleCancel}>Cancel</Button>
+                </Card>
             </div>
             : 
             <Button className="ui secondary button" onClick={handleClick}>
