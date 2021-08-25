@@ -19,12 +19,14 @@ function NavBar({currentUser, setCurrentUser}){
             <Menu.Item header>
             <h1>Flatiron Fantasy 🏈</h1>
             </Menu.Item>
+            {localStorage.getItem("user_id") === null ? null : 
             <Menu.Item>
                 <Link to='/'>
                     Home
                 </Link>
             </Menu.Item>
-                {currentUser.acct_type === "admin" ? 
+            }
+            {currentUser.acct_type === "admin" ? 
             <Menu.Item>
                     <div className='admin-button'>
                         <Link to='/admin'>
@@ -42,9 +44,11 @@ function NavBar({currentUser, setCurrentUser}){
                 </Link>
             </Menu.Item>
                 : null}
+            {localStorage.getItem("user_id") === null ? null : 
             <Menu.Item>
             <h2 className='username'>{currentUser.username}</h2>
-            </Menu.Item>
+            </Menu.Item>     
+            }
         </Menu>
         </div>
     )

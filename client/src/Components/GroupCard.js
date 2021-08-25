@@ -31,9 +31,9 @@ function GroupCard({userGroup,group, setCurrentGroup, currentUser, setCurrentUse
                                 <Card.Content>
                                     <div className="card-body">
                                         <Card.Header>{group.title}</Card.Header>
-                                        <Link to='/group'>
+                                        {/* <Link to='/group'> */}
                                         <Button basic color='red' content='Red' onClick={handleClick}>Join League</Button>
-                                        </Link>
+                                        {/* </Link> */}
                                     </div>
                                 </Card.Content>
                             </Card>

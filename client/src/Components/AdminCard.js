@@ -50,10 +50,12 @@ function AdminCard({game}){
                     <div className="header">{game.away_team} vs. {game.home_team}</div>
                     <div>                 
                     <div className="description">Select Winning Team</div>
+                    {isClicked ? <h4>{selectedTeam}</h4> : game.winning_team ? <h4>{selectedTeam}</h4> : 
                     <select className="ui dropdown" value={selectedTeam} onChange={handleDropdown}>
                         <option value="1">{game.away_team}</option>
                         <option value="0">{game.home_team}</option>
-                    </select>
+                    </select>  
+                    }
                     </div>
                     </div>
                     <br />

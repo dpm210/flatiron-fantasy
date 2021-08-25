@@ -3,18 +3,18 @@ import { Card } from 'semantic-ui-react'
 import { Grid, Image, Button, Icon, Modal } from 'semantic-ui-react'
 
 function GameCard({game}){
-    // console.log(game)
     const [isClicked, setClicked] = useState(false)
     const [selectedTeam, setSelectedTeam] = useState(game.away_team)
     const [predictions, setPredictions] = useState([])
-
+    
+    // console.log(game.predictions)
     // console.log(selectedTeam)
 
-    useEffect(() => {
-        fetch('http://localhost:3000/predictions')
-        .then(res => res.json())
-        .then(data => setPredictions(data))
-    },[])
+    // useEffect(() => {
+    //     fetch('http://localhost:3000/predictions')
+    //     .then(res => res.json())
+    //     .then(data => setPredictions(data))
+    // },[])
 
     // console.log(predictions.map(pred => pred.pick).length > 1)
 
@@ -71,8 +71,8 @@ function GameCard({game}){
                         {isClicked ? <Button  className="ui secondary button" onClick={handleChange}>Change your pick</Button> : <Button className="ui primary button" onClick={handlePick}>Submit Pick</Button> }
                     </div>
                 </div>
-                </Card.Content> 
-            </Card>
+                    </Card.Content> 
+                </Card>
             </Card.Group>
             </div>
         </div>
