@@ -31,12 +31,12 @@ const groupLeaderboard = newGroup.map(user =>
             {/* <Link to='/'>
             <Button>Home</Button>
             </Link> */}
-        <h2>{groupTitle}</h2>
+        <h2 className="league_group">{groupTitle}</h2>
             <Link to='/pickems'>
             <Button>Week 1 Pick ems</Button>
             </Link>
-        <h2>Leaderboard</h2>
-        <Table size='large' striped>
+        <h2 className="league_group">Leaderboard</h2>
+        <Table size='large' inverted striped>
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell width={5}>Username</Table.HeaderCell>

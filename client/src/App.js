@@ -87,7 +87,7 @@ function App() {
           </Route>
 
           <Route path='/pickems'>
-            <PickemsPage  />
+            <PickemsPage groups={groups} />
           </Route>
 
           <Route path='/leaderboard'>

@@ -59,7 +59,8 @@ const errorMes = signUpErrors.map((err) =>
     return(
         <div>
         <div className="form-section">
-        <h4 className="sign-in-out">Sign Up</h4>
+            <br />
+        <h2 className="sign-in-out">Sign Up</h2>
             <form onSubmit={handleSignUp}>
             <div className="ui input">
                 <input onChange={usernameSubmit} type="text" name='username' value={newUser} placeholder='Username'/>
@@ -71,9 +72,10 @@ const errorMes = signUpErrors.map((err) =>
             </div>
             <br/>
             <br/>
-             <Button className="ui button" color='green' type='submit'>Sign Up</Button>
+             <Button className="ui primary button" type='submit'>Sign Up</Button>
              <div>{errorMes}</div>
          </form>
+         <br />
          <p>Already have an account?</p><Link to='/login'>Login</Link>
     </div>
     </div>

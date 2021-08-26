@@ -42,14 +42,19 @@ function AdminCard({game}){
 
     return(
         <div>
+        <div className='ui inverted segment' style={{marginBottom: "20px"}}>
+        <div className='ui inverted card'></div>
             <div className="card">
-                <Card.Group>
-                    <Card>
-                        <Card.Content>
-                    <div className="content">
-                    <div className="header">{game.away_team} vs. {game.home_team}</div>
-                    <div>                 
-                    <div className="description">Select Winning Team</div>
+                {/* <Card.Group> */}
+                    {/* <Card> */}
+                        {/* <Card.Content> */}
+                        <div className='content'>
+                             <div className="card-body">
+                    <div className="center aligned header">
+                        <h3 className='card-text'>{game.away_team} vs. {game.home_team}</h3>
+                        </div>
+                    <div>          
+                    <h4 className="description">Select Winning Team</h4>
                     {isClicked ? <h4>{selectedTeam}</h4> : game.winning_team ? <h4>{selectedTeam}</h4> : 
                     <select className="ui dropdown" value={selectedTeam} onChange={handleDropdown}>
                         <option value="1">{game.away_team}</option>
@@ -62,10 +67,12 @@ function AdminCard({game}){
                     <div>
                         {isClicked ? "Winning Team Selected!" : game.winning_team ? "Winning Team Selected!" : <div className="ui primary button" onClick={handlePick}>Save Winner</div> }
                     </div>
-                    </Card.Content>
-                    </Card>
-                </Card.Group>
+                    {/* </Card.Content> */}
+                    {/* </Card> */}
+                {/* </Card.Group> */}
             </div>
+        </div>
+        </div>
         </div>
     )
 }

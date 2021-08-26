@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: rgb(32,32,32);
 }
 
 .App-logo {
@@ -41,8 +42,21 @@
   text-align: left;
 }
 
-.card {
+.ui inverted card {
   text-align: center;
   margin-right: 50px;
   margin-bottom: 30px;
+  background-color: rgb(32,32,32);
+}
+
+.card_text{
+  text-align: center;
+}
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap');
+.logo {
+  font-family: 'Urbanist', sans-serif;
+}
+
+.league_group{
+  color: white;
 }

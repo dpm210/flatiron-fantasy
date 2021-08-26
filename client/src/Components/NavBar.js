@@ -1,5 +1,7 @@
 import {Link} from 'react-router-dom'
 import { Menu, Button} from 'semantic-ui-react'
+import logo from '/Users/danielmueller/Development/phase-5/nfl-pickems-app/client/src/logo/Screen Shot 2021-08-26 at 9.08.48 AM.png'
+
 function NavBar({currentUser, setCurrentUser}){
     // console.log(currentUser.acct_type)
 
@@ -15,9 +17,9 @@ function NavBar({currentUser, setCurrentUser}){
 
     return(
         <div>
-            <Menu>
+            <Menu size="massive" inverted>
             <Menu.Item header>
-            <h1>Flatiron Fantasy 🏈</h1>
+            <h2 className='logo'>Flatiron Fantasy</h2>
             </Menu.Item>
             {localStorage.getItem("user_id") === null ? null : 
             <Menu.Item>
@@ -36,20 +38,26 @@ function NavBar({currentUser, setCurrentUser}){
                     </div>
             </Menu.Item>
                     : null}
+            <Menu.Menu position='right'>
                 {Object.keys(currentUser).length > 0 ? 
             <Menu.Item onClick={handleSignOut}>
                 <Link to='login'>
-                    Sign Out
-                {/* <Button onClick={handleSignOut}>Sign Out</Button>  */}
+                <Button className='ui primary button' onClick={handleSignOut}>Sign Out</Button> 
                 </Link>
             </Menu.Item>
                 : null}
             {localStorage.getItem("user_id") === null ? null : 
             <Menu.Item>
-            <h2 className='username'>{currentUser.username}</h2>
+            <h2 className='logo'>Welcome, {currentUser.username}</h2>
             </Menu.Item>     
             }
+        </Menu.Menu>
         </Menu>
+
+        <Menu className='ui bottom fixed menu' size="massive" inverted>
+            <Menu.Item position='center'>A React & Ruby on Rails project by Dan Mueller</Menu.Item>
+        </Menu>
+        
         </div>
     )
 }

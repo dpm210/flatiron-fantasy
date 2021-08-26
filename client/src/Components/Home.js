@@ -1,7 +1,7 @@
 import GroupCard from './GroupCard'
 import UserGroupCard from './UserGroupCard'
 import {useState, useEffect} from 'react'
-import { Grid, Button, Card, Input} from 'semantic-ui-react'
+import { Grid, Button, Card, Input, Segment} from 'semantic-ui-react'
 
 function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, setCurrentUser, setGroups}){
     const [isClicked, setIsClicked] = useState(false)
@@ -78,7 +78,8 @@ function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, s
     })
     return(
         <div>
-            <h2>Join Leagues</h2>
+            <br />
+            <h2 className='league_group'>Join Leagues</h2>
             <div>
             {isClicked === true ?
             <div>
@@ -99,9 +100,11 @@ function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, s
                 </Card>
             </div>
             : 
-            <Button className="ui secondary button" onClick={handleClick}>
+            
+            <Button inverted color='teal' onClick={handleClick}>
                 Create New League
-            </Button>}
+            </Button>
+            }
             <br />
             <br />
             <br />
@@ -113,7 +116,7 @@ function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, s
             <br />
             <br />
             <div>
-                <h2>My Leagues</h2>
+                <h2 className='league_group'>My Leagues</h2>
                 <br />
                 <Grid container columns={3}>
                 {userGroupCards}

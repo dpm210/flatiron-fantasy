@@ -54,26 +54,31 @@ function GameCard({game}){
 
     return(
         <div>
-            <div className="card">
-                <Card.Group>
+        <div className='ui inverted segment' style={{marginBottom: "20px"}}>
+        <div className='ui inverted card'></div>
+                {/* <Card.Group>
                     <Card>
-                        <Card.Content>
+                        <Card.Content> */}
+                <div className='content'>
                 <div className="card-body">
-                    <h2 className="card-title">{game.away_team} vs. {game.home_team}</h2>
-                    <h3>Make your pick!</h3>
-                    <select value={selectedTeam} onChange={handleDropdown}>
+                <div className="center aligned header">
+                    <h3 className="card-text">{game.away_team} vs. {game.home_team}</h3>
+                    <h4>Make your pick!</h4>
+                    <select className='ui dropdown' value={selectedTeam} onChange={handleDropdown}>
                         <option>{game.away_team}</option>
                         <option>{game.home_team}</option>
                     </select>
                     <br />
                     <br />
                     <div> 
-                        {isClicked ? <Button  className="ui secondary button" onClick={handleChange}>Change your pick</Button> : <Button className="ui primary button" onClick={handlePick}>Submit Pick</Button> }
+                        {isClicked ? <Button onClick={handleChange}>Change your pick</Button> : <Button className="ui primary button" onClick={handlePick}>Submit Pick</Button> }
+                    </div>
                     </div>
                 </div>
-                    </Card.Content> 
+                </div>
+                    {/* </Card.Content> 
                 </Card>
-            </Card.Group>
+            </Card.Group> */}
             </div>
         </div>
     )

@@ -50,7 +50,8 @@ function LogIn({setCurrentUser, currentUser}){
     return(
         <div>
         <div className="form-section">
-            <h4 className="sign-in-out">Sign In</h4>
+            <br />
+            <h2 className="sign-in-out">Sign In</h2>
             <form onSubmit={handleSubmit}>
             <div className="ui input">
                 <input type="text" name='username' 
@@ -66,10 +67,11 @@ function LogIn({setCurrentUser, currentUser}){
             </div>
             <br/>
             <br/>
-                <Button className="ui button" color='green' type='submit'>Sign In</Button>
+                <Button className="ui primary button" type='submit'>Sign In</Button>
                 {loggedIn ? <Redirect to='/'/> : null}
                 <p>{errors}</p>
             </form>
+            <br />
             <p>Don't have an account?</p><Link to='SignUp'>Sign Up!</Link>
         </div>
         </div>

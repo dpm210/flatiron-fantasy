@@ -18,19 +18,25 @@ function handleClick(){
 
     return(
 
-                    <div className="card">
-                        <Card.Group>
-                            <Card>
-                                <Card.Content>
-                        <div className="card-body">
-                            <h5 className="card-title">{userGroup.title}</h5>
+        <div className='ui inverted segment'style={{marginBottom: "20px"}}>
+        <div className='ui inverted card' >
+                        {/* <Card.Group> */}
+                            {/* <Card> */}
+                                {/* <Card.Content> */}
+                                <div className='content'>
+                                    <div className="card-body">
+                                        <div className="center aligned header">
+                            <h3 className="card_text">{userGroup.title}</h3>
                             <Link to='/Group'>
-                            <Button onClick={handleClick}>View League</Button>
+                            <Button inverted color="blue" onClick={handleClick}>View League</Button>
                             </Link>
                         </div>
-                                </Card.Content>
-                            </Card>
-                        </Card.Group>
+                                {/* </Card.Content> */}
+                            {/* </Card> */}
+                        {/* //  </Card.Group> */}
+                    </div>
+                    </div>
+                    </div>
                     </div>
     )
 }

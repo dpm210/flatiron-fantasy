@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react'
+import 'fomantic-ui-css/semantic.css';
 import { Button, Card, Image, Grid } from 'semantic-ui-react'
+
 import {Link} from 'react-router-dom'
 
 function GroupCard({userGroup,group, setCurrentGroup, currentUser, setCurrentUser, joinGroupFilter}){
@@ -25,20 +27,29 @@ function GroupCard({userGroup,group, setCurrentGroup, currentUser, setCurrentUse
     }
 
     return(
-                    <div className="card">
-                        <Card.Group>
-                            <Card>
-                                <Card.Content>
+                    <div className='ui inverted segment' style={{marginBottom: "20px"}}>
+                    <div className='ui inverted card'>
+                    {/* <div className="card"> */}
+                        {/* <Card.Group> */}
+                            {/* <Card> */}
+                                {/* <Card.Content> */}
+                                    <div className='content'>
                                     <div className="card-body">
-                                        <Card.Header>{group.title}</Card.Header>
+                                        <div className="center aligned header">
+                                        <h3 className="card_text">{group.title}</h3>
+                                        </div>
+                                        <br />
                                         {/* <Link to='/group'> */}
-                                        <Button basic color='red' content='Red' onClick={handleClick}>Join League</Button>
+                                        <Button inverted color='red' content='Red' onClick={handleClick}>Join League</Button>
                                         {/* </Link> */}
                                     </div>
-                                </Card.Content>
-                            </Card>
-                        </Card.Group>
+                                    </div>
+                                {/* </Card.Content> */}
+                            {/* </Card> */}
+                        {/* </Card.Group> */}
                     </div>
+                    </div>
+                    // </div>
     )
 }
 

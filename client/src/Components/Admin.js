@@ -27,7 +27,7 @@ function Admin(){
             {/* <Link to='/'>
             <button>Home</button>
             </Link> */}
-            <h1>Week 1 Games</h1>
+            <h1 className='league_group'>Week 1 Games</h1>
             <div>
                 <Grid container columns={3}>
                 {adminCards}

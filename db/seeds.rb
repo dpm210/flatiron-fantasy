@@ -59,7 +59,7 @@ Game.create(away_team: "Baltimore Ravens", home_team: "Las Vegas Raiders")
 puts "Creating Groups..."
 Group.create(title: "Flatiron Pick-Ems")
 Group.create(title: "Greg's Super Secret League")
-Group.create(title: "Kyle and the Bugs")
+Group.create(title: "BugNet Corp.™")
 
 puts "Creating User Groups..."
 UserGroup.create(user_id: 1, group_id: 1)
