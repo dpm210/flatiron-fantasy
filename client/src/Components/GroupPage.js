@@ -49,6 +49,21 @@ const groupLeaderboard = newGroup.map(user =>
                 </Table.Body>
 
     </Table>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
      </div>
     )
 }

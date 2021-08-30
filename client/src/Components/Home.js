@@ -83,12 +83,14 @@ function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, s
             <div>
             {isClicked === true ?
             <div>
-                <Card className="card" centered>
+                {/* <Card className="card" centered> */}
+                {/* <div className='ui inverted segment' style={{marginLeft:'38%'}}> */}
+                    <div className='ui inverted card' style={{marginLeft:'39%'}}>
                     <form type='submit' onSubmit={handleSubmitLeague}>
                         <br />
                     <Input 
                         onChange={handleLeagueName}
-                        placeholder="League Name">
+                        inverted placeholder="League Name">
                     </Input>
                     {/* <input type="checkbox" id="checkbox" name="private" value="Private?" checked={isChecked} onChange={handleChecked} />Private? */}
                     <br />
@@ -97,8 +99,10 @@ function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, s
                     </form>
                     <br />
                     <Button onClick={handleCancel}>Cancel</Button>
-                </Card>
+                {/* </Card> */}
             </div>
+            </div>
+            // </div>
             : 
             
             <Button inverted color='teal' onClick={handleClick}>
@@ -122,6 +126,15 @@ function Home({groups, setCurrentGroup, userGroups, currentGroup, currentUser, s
                 {userGroupCards}
                 </Grid>
             </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
     )
 }
